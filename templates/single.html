@@ -1,0 +1,31 @@
+
+{% extends 'base.html' %}
+{% block title %}
+<title>Hello Homepages</title>
+{% endblock %}
+
+{% block content %}
+
+
+<div>
+{% if post %}
+
+<p>{{post.id}} </p>
+<p>{{post.title}} </p>
+<p>{{post.body | safe}} </p>
+<p>{{post.date.strftime('%Y %B %d')}} </p>
+<img src="{{url_for('static', filename='images/'+post.img)}}" alt="">
+<br>
+<a href="/edit/{{post.id}}"> <button class="btn btn-success"> EDIT</button></a>
+<a href="/delete/{{post.id}}"> <button class="btn btn-danger">DELETE</button></a>
+<br> <br>
+
+
+{% else %}
+<p> There is no data</p>
+{% endif %}
+
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}

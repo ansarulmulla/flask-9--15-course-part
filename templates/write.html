@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3 class="text-center">Create Post</h3>
+
+<form method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Enter Title</label>
+      <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Title">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="tiny-mce-post-body">Enter Your Post Body</label>
+      <textarea name="body" id="editor"  rows="9" placeholder="Enter your text here" cols="20" class="form-control "></textarea>
+      <div class="">
+      </div>
+  </div>
+  
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text">Upload</span>
+    </div>
+    <div class="custom-file">
+        <input type="file" name="img" class="custom-file-input" id="inputGroupFile">
+        <label for="inputGroupFile" class="custom-file-label">Choose File</label>
+    </div>
+</div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <script>
+    CKEDITOR.replace( 'editor' );
+</script>
+  <br>
+{% include 'footer.html' %}
+{% endblock %}
